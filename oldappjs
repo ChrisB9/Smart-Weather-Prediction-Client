@@ -1,0 +1,159 @@
+oldappjsimport React, {Component} from 'react';
+import {
+  NavigatorIOS,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import {SmoothLine} from 'react-native-pathjs-charts';
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <NavigatorIOS
+        barTintColor='#EB8657'
+        titleTextColor='#333333'
+        tintColor='#fff'
+        style={styles.navContainer}
+        initialRoute={{
+          component: HomeScene,
+          title: 'Smart Weather Prediction',
+          backButtonTitle: 'Back'
+        }}/>
+    );
+  }
+}
+
+class HomeScene extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+ 
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Hello Bla</Text>
+        <SmoothLine data={data} options={options} xKey='x' yKey='y' />
+      </View>
+    );
+  }
+ 
+}
+
+const data = [
+    [{
+      "x": 0,
+      "y": 47782
+    }, {
+      "x": 1,
+      "y": 48497
+    }, {
+      "x": 2,
+      "y": 77128
+    }, {
+      "x": 3,
+      "y": 73413
+    }, {
+      "x": 4,
+      "y": 58257
+    }, {
+      "x": 5,
+      "y": 40579
+    }, {
+      "x": 6,
+      "y": 72893
+    }, {
+      "x": 7,
+      "y": 60663
+    }, {
+      "x": 8,
+      "y": 15715
+    }, {
+      "x": 9,
+      "y": 40305
+    }, {
+      "x": 10,
+      "y": 68592
+    }, {
+      "x": 11,
+      "y": 95664
+    }, {
+      "x": 12,
+      "y": 17908
+    }, {
+      "x": 13,
+      "y": 22838
+    }, {
+      "x": 14,
+      "y": 32153
+    }, {
+      "x": 15,
+      "y": 56594
+    }, {
+      "x": 16,
+      "y": 76348
+    }, {
+      "x": 17,
+      "y": 46222
+    }, {
+      "x": 18,
+      "y": 59304
+    }]
+  ]
+
+const options = {
+    width: 200,
+    height: 200,
+    color: '#2100B9',
+    margin: {top: 40, left: 60, bottom: 50, right: 20},
+    animate: {
+      type: 'delayed',
+      duration: 200,
+      fillTransition:3
+    },
+    axisX: {
+      showAxis: true,
+      showLines: true,
+      showLabels: false,
+      showTicks: false,
+      zeroAxis: false,
+      orient: 'bottom',
+      tickValues: [],
+      label: {
+        fontFamily: 'Arial',
+        fontSize: 8,
+        fontWeight: true
+      }
+    },
+    axisY: {
+      showAxis: true,
+      showLines: true,
+      showLabels: false,
+      showTicks: false,
+      zeroAxis: false,
+      orient: 'left',
+      tickValues: [],
+      label: {
+        fontFamily: 'Arial',
+        fontSize: 8,
+        fontWeight: true
+      }
+    }
+  }
+
+var styles = StyleSheet.create({
+  container: {
+        flex: 1,
+        padding: 30,
+        marginTop: 65,
+        alignItems: 'stretch'
+    },
+    chart: {
+        width: 200,
+        height: 200,
+    },
+    navContainer: {
+        flex: 1
+    }
+});
