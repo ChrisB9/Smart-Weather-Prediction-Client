@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {
 	View,
 	Text,
@@ -7,28 +7,22 @@ import {
 } from 'react-native'
 import styles from './styles'
 
-class Navigation extends Component {
-	constructor(props) {
-	  super(props);
-	}
+const getTitle = (press, title) => {
+	return (
+		<TouchableHighlight
+			onPress={press}
+			underlayColor="#fff">
+			<Text style={styles.title}>{title}</Text>
+		</TouchableHighlight>
+	)
+}
 
-	getTitle() {
-		return (
-			<TouchableHighlight
-				onPress={this.props.press}
-		 		underlayColor="#fff">
-		 		<Text style={styles.title}>{this.props.title}</Text>
-		 	</TouchableHighlight>
-		)
-	}
-
-	render() {
-		return (
-			<View style={styles.navigation}>
-				{this.getTitle()}
-			</View>
-		)
-	}
+const Navigation = ({press, title}) => {
+	return (
+		<View style={styles.navigation}>
+			{getTitle()}
+		</View>
+	)
 }
 
 export default Navigation;
